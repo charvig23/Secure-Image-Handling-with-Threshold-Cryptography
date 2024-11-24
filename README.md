@@ -1,4 +1,4 @@
-# Shamir's Secret Sharing for Images
+# Secure Image Handling with Threshold Cryptography
 
 
 ## Features
@@ -30,25 +30,25 @@ pip install -r requirements.txt
 To encrypt (share) an image:
 
 ```shell
-python Shamir.py -e <image-path> -n <number-of-shares> -r <threshold>
+python finalShamir.py -e <image-path> -n <number-of-shares> -r <threshold>
 ```
 
 To decrypt (reconstruct) an image using shares:
 
 ```shell
-python Shamir.py -d <output-path> -r <threshold> -i <share-indexes>
+python finalShamir.py -d <output-path> -r <threshold> -i <share-indexes>
 ```
 
 To compare the original and reconstructed images:
 
 ```shell
-python Shamir.py -c <original-image-path> <reconstructed-image-path>
+python finalShamir.py -c <original-image-path> <reconstructed-image-path>
 ```
 
 For a full list of options, use the `-h` flag:
 
 ```shell
-python Shamir.py -h
+python finalShamir.py -h
 ```
 
 ## Example
@@ -57,12 +57,12 @@ Here is an example of how to encode and decode an image:
 
 ```shell
 # Encode the image into 5 shares with a threshold of 3
-python Shamir.py -e avatar.png -n 5 -r 3
+python finalShamir.py -e real.jpg -n 5 -r 3
 
 # Decode the image using shares 1, 4, and 5
-python Shamir.py -d avatar_recover.png -r 3 -i 1 4 5
+python finalShamir.py -d decoded.png -r 3 -i 1 4 5
 
 # Compare the original and recovered images
-python Shamir.py -c avatar.png avatar_recover.png
+python finalShamir.py -c real.jpg decoded.png
 ```
 
